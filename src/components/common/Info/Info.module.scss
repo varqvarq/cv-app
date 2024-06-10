@@ -1,0 +1,15 @@
+@use '../../../assets/styles/styles.scss' as *;
+
+.container {
+  padding: 15px;
+  background-color: $main-light-gray;
+
+  .title {
+    @include main-bold-text;
+    margin-bottom: 5px;
+  }
+
+  .text {
+    @include main-text;
+  }
+}

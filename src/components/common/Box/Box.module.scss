@@ -1,0 +1,16 @@
+// @use '../../assets/styles/styles.scss';
+@use '../../../assets/styles/styles.scss' as *;
+
+.container {
+  margin-bottom: 50px;
+
+  .title {
+   @include main-title;
+   margin-bottom: 40px;
+   word-break: break-all;
+  }
+
+  .content {
+    @include main-text;
+  }
+}
