@@ -1,0 +1,39 @@
+@use '../../assets/styles/styles.scss' as *;
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  .item {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: fit-content;
+
+    .button {
+      background: none;
+      gap: 20px;
+      color: $main-gray;  
+
+      &:hover {
+        color: $main-green;
+      }
+    }
+
+    .active {
+      color: $main-green;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .button > span {
+    display: none;
+  }
+  
+  .navigation {
+    align-items: center;
+  }
+}
