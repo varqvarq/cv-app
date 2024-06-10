@@ -1,0 +1,19 @@
+@use '../../../../assets/styles/styles' as *;
+
+.info {
+
+  .title {
+    @include main-bold-text($main-green);
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    @include main-text;
+    margin-bottom: 10px;
+  }
+  
+  .link {
+    @include main-text($color: $main-green);
+    line-height: $lh-120;
+  }
+}
