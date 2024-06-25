@@ -1,37 +1,40 @@
 @use '../../assets/styles/styles.scss' as *;
 
-.item {
-  margin-bottom: 40px;
-  list-style: none;
-
-  .feedbackText {
-    margin-bottom: 20px;
-  }
+.container {
+  height: 100dvh;
+  .item {
+    margin-bottom: 40px;
+    list-style: none;
   
-  .reporterInfo {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  
-    .reporterImg {
-      width: 50px;
-      height: 50px;
-      margin-right: 20px;
+    .feedbackText {
+      margin-bottom: 20px;
     }
-  
-    .reporterName {
+    
+    .reporterInfo {
       display: flex;
-      @include small-text($main-dark-blue);
-      word-break: break-all;
+      align-items: center;
       flex-wrap: wrap;
-    }
+    
+      .reporterImg {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+      }
+    
+      .reporterName {
+        display: flex;
+        @include small-text($main-dark-blue);
+        word-break: break-all;
+        flex-wrap: wrap;
+      }
+    
+      .reporterLink {
+        @include small-text($main-green);
+        text-decoration: none;
   
-    .reporterLink {
-      @include small-text($main-green);
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

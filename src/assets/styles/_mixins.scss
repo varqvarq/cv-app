@@ -8,10 +8,10 @@
   color: $main-green;
 }
 
-@mixin main-text($color: $main-dark-blue) {
+@mixin main-text($color: $main-dark-blue, $lh: $lh-150) {
   font-weight: $fw-400;
   font-size: $fs-small-14;
-  line-height: $lh-150;
+  line-height: $lh;
   color: $color;
 }
 
@@ -48,6 +48,10 @@
   line-height: $lh-120;
   text-align: center;
   color: $main-white;
+}
+
+@mixin labelText {
+
 }
 
 @mixin center-column-flex {

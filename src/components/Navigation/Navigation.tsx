@@ -13,17 +13,19 @@ export const Navigation: React.FC = () => {
 
 	useEffect(() => {
 		const callback = (entries: IntersectionObserverEntry[]) => {
-			const visibleSection = entries.find(
-				(entry) => entry.isIntersecting
-			)?.target;
+			entries.forEach((entry) => {
+				const entryId = entry.target.id;
+				if (entry.isIntersecting) {
+					history.replaceState('', '', `#${entryId}`);
 
-			if (visibleSection) {
-				setActiveSection(visibleSection.id);
-			}
+					setActiveSection(entry.target.id);
+				}
+			});
 		};
 
-		const options = {
+		const options: IntersectionObserverInit = {
 			rootMargin: '0px 0px -99% 0px',
+			threshold: 0,
 		};
 
 		observer.current = new IntersectionObserver(callback, options);

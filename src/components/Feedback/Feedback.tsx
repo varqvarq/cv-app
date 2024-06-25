@@ -8,14 +8,14 @@ interface FeedbackProps {}
 
 export const Feedback: React.FC<FeedbackProps> = () => {
 	return (
-		<ul>
+		<ul className={style.container}>
 			{data.map((item) => (
 				<li className={style.item} key={item.id}>
 					<Info text={item.feedback} className={style.feedbackText} />
 
 					<div className={style.reporterInfo}>
 						<img
-							src={require(`../../assets/images/${item.reporter.photoUrl}`)}
+							src={`/assets/images/${item.reporter.photoUrl}`}
 							alt='reporter_img'
 							className={style.reporterImg}
 						/>

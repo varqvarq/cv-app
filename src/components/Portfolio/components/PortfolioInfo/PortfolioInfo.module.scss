@@ -15,5 +15,9 @@
   .link {
     @include main-text($color: $main-green);
     line-height: $lh-120;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
