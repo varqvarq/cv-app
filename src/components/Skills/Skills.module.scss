@@ -1,36 +1,52 @@
 @use '../../assets/styles/styles.scss' as *;
 
-.skillBar {
-  @include secondary-text($main-white);
-  height: 30px;
-  background-color: $main-green;
-  padding: 5px 15px;
-  margin-bottom: 5px;
-}
-
-.line {
-  position: relative;
-}
-
-.label {
-  @include small-text;
-  position: absolute;
-  bottom: -20px;
-  white-space: wrap;
-
-  &:nth-child(2) {
-    left: 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  
+  .skillBar {
+    @include secondary-text($main-white);
+    height: 30px;
+    background-color: $main-green;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    width: fit-content;
   }
-
-  &:nth-child(3) {
-    left: 17.5%; 
+  
+  .openFormBtn {
+    width: 140px;
+    height: 40px;
+    gap: 5px;
+    margin-bottom: 30px;
+    align-self: flex-end;
   }
-
-  &:nth-child(4) {
-    left: 77.9%; 
+  
+  .line {
+    position: relative;
   }
-
-  &:nth-child(5) {
-    right: 0;
+  
+  .label {
+    @include small-text;
+    position: absolute;
+    bottom: -20px;
+    white-space: wrap;
+  
+    &:nth-child(2) {
+      left: 0;
+    }
+  
+    &:nth-child(3) {
+      left: 17.5%; 
+    }
+  
+    &:nth-child(4) {
+      left: 77.9%; 
+    }
+  
+    &:nth-child(5) {
+      right: 0;
+    }
   }
 }

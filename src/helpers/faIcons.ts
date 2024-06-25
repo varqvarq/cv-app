@@ -11,6 +11,8 @@ import {
 	faLocationArrow,
 	faComment,
 	faChevronLeft,
+	faRotate,
+	faPenToSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -33,6 +35,8 @@ const icons: { [key: string]: IconDefinition } = {
 	faLocationArrow,
 	faComment,
 	faChevronLeft,
+	faRotate,
+	faPenToSquare,
 };
 
 export default icons;

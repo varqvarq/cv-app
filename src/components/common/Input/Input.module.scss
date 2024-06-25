@@ -1,0 +1,40 @@
+@use '../../../assets/styles/styles.scss' as *;
+
+.container {
+  margin-bottom: 20px;
+
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  
+    .input {
+      width: 270px;
+      height: 40px;
+      color: $main-gray;
+      border: 1px solid $main-gray;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    .input::placeholder {
+      @include small-text;
+    }
+    
+    .label {
+      @include main-text($main-black, $lh-120);
+      margin-right: 20px;
+    }
+  
+    .errorBorder {
+      border-color: red;
+    }
+  }
+
+  
+.error {
+  @include small-text(red);
+  margin-bottom: -15px;
+  height: 15px;
+}
+}

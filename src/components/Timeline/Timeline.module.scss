@@ -1,9 +1,11 @@
 @use '../../assets/styles/styles.scss' as *;
 
 .container {
-  max-height: 80vh;
+  max-height: 50vh;
   min-height: 30vh;
   overflow-y: auto;
+  position: relative;
+  
   
   .list {
     position: relative;
@@ -48,4 +50,33 @@
       }
     } 
   }
+
+  .loading {
+    position: absolute;
+    color: $main-green;
+    left: 50%;
+    top: 50%;
+    animation: loading 1.5s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    
+  }
+  
+  .error {
+    position: absolute;
+    text-align: center;
+    width: fit-content;
+    @include main-text(red);
+    left: 35%;
+    top: 50%;
+  }
+
+
 };

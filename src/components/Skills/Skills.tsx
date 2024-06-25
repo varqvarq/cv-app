@@ -1,18 +1,37 @@
 import style from './Skills.module.scss';
 
+import SkillsForm from './components/SkillsForm';
 import { skillsData as data } from '../../helpers/constants';
+import Button from '../common/Button/Button';
+import icons from '../../helpers/faIcons';
+import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
+import {
+	selectSkillsData,
+	toggleSkills,
+} from '../../redux/features/skills/skillsSlice';
 
-interface SkillsProps {}
+export const Skills: React.FC = () => {
+	const dispatch = useAppDispatch();
+	const { skills: data, skillFormIsOpen } = useAppSelector(selectSkillsData);
 
-export const Skills: React.FC<SkillsProps> = () => {
 	return (
-		<div>
+		<div className={style.container}>
+			<Button
+				buttonText={`${skillFormIsOpen ? 'close edit' : 'open edit'}`}
+				className={style.openFormBtn}
+				icon={icons.faPenToSquare}
+				onClick={() => dispatch(toggleSkills(!skillFormIsOpen))}
+			/>
+
+			{skillFormIsOpen && <SkillsForm />}
+
 			{data.map((skill) => {
 				return (
 					<div
 						key={skill.name}
 						className={style.skillBar}
-						style={{ width: skill.level }}
+						style={{ width: `${skill.range}%` }}
 					>
 						{skill.name}
 					</div>

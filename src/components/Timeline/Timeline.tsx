@@ -1,26 +1,50 @@
 import style from './Timeline.module.scss';
 
-import { educationData as data } from '../../helpers/constants';
-
 import Info from '../common/Info/Info';
 
-interface TimelineProps {}
+import icons from '../../helpers/faIcons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAppSelector } from '../../redux/app/hooks';
+import { selectEducationData } from '../../redux/features/education/educationSlice';
 
-const Timeline: React.FC<TimelineProps> = () => {
+const Timeline: React.FC = () => {
+	const {
+		education: data,
+		status,
+		error,
+	} = useAppSelector(selectEducationData);
+
 	return (
 		<div className={style.container}>
-			<ul className={style.list}>
-				{data.map((element) => {
-					return (
-						<li key={element.year} className={style.event}>
-							<div className={`${style.year}`}>{element.year}</div>
-							<div className={style.eventContent}>
-								<Info text={element.text} title={element.title} />
-							</div>
-						</li>
-					);
-				})}
-			</ul>
+			{status === 'loading' && (
+				<FontAwesomeIcon
+					icon={icons.faRotate}
+					size='2xl'
+					className={style.loading}
+				/>
+			)}
+
+			{status === 'failed' && (
+				<h2 className={style.error}>
+					{}
+					{error}
+				</h2>
+			)}
+
+			{status === 'idle' && (
+				<ul className={style.list}>
+					{data.map((element) => {
+						return (
+							<li key={element.date} className={style.event}>
+								<div className={`${style.year}`}>{element.date}</div>
+								<div className={style.eventContent}>
+									<Info text={element.description} title={element.title} />
+								</div>
+							</li>
+						);
+					})}
+				</ul>
+			)}
 		</div>
 	);
 };

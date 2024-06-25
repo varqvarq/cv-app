@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import style from './Inner.module.scss';
 
@@ -17,26 +17,37 @@ import Button from '../../components/common/Button/Button';
 
 const Inner = () => {
 	const [isOpen, setIsOpen] = useState(true);
+	const [btnShown, setBtnShow] = useState(false);
 
 	useEffect(() => {
-		const goUpButton = document.getElementById('goUp');
+		const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+			const entry = entries[0];
 
-		const handleScroll = () => {
-			if (goUpButton) {
-				goUpButton.style.display =
-					document.body.scrollTop > 300 ||
-					document.documentElement.scrollTop > 300
-						? 'block'
-						: 'none';
+			if (entry.isIntersecting) {
+				setBtnShow(false);
+			} else {
+				setBtnShow(true);
 			}
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		const firstSection = document.getElementById('about');
+
+		const options: IntersectionObserverInit = {
+			threshold: 0,
+		};
+
+		const observer = new IntersectionObserver(handleIntersect, options);
+
+		if (firstSection) {
+			observer.observe(firstSection);
+		}
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
+			if (firstSection) {
+				observer.unobserve(firstSection);
+			}
 		};
-	}, []);
+	});
 
 	const goUp = () => {
 		document.body.scrollTop = 0;
@@ -44,7 +55,7 @@ const Inner = () => {
 	};
 
 	return (
-		<main className={style.wrapper}>
+		<main id='wrapper' className={style.wrapper}>
 			<Panel state={isOpen} setState={setIsOpen} />
 
 			<div className={`${style.container} ${isOpen ? style.active : ''}`}>
@@ -60,10 +71,11 @@ const Inner = () => {
 			<Button
 				id='goUp'
 				icon={icons.faChevronLeft}
-				className={style.goUp}
+				className={`${style.goUp} ${!btnShown && style.hidden}`}
 				onClick={goUp}
 			/>
 		</main>
 	);
 };
+
 export default Inner;

@@ -1,7 +1,7 @@
 export interface IEducationData {
-	year: number;
+	date: number;
 	title: string;
-	text: string;
+	description: string;
 }
 
 export interface IExpertiseData {
@@ -15,7 +15,13 @@ export interface IExpertiseData {
 
 export interface ISkillsData {
 	name: string;
-	level: string;
+	range: number;
+}
+
+export interface INewSkillsData {
+	id: number;
+	name: string;
+	range: number;
 }
 
 export interface IPortfolioData {

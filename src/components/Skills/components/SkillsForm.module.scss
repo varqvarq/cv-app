@@ -1,0 +1,15 @@
+@use '../../../assets/styles/styles.scss' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $main-green;
+  border-radius: 5px;
+  padding: 20px 15px;
+  margin-bottom: 40px;
+
+  .button {
+    width: 105px;
+    height: 40px;
+  }
+}
