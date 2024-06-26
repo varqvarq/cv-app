@@ -14,7 +14,11 @@ const PhotoBox: React.FC<Props> = (props) => {
 		<div
 			className={`${style.container} ${props.sidebar ? style.sidebar : ''} ${props.className}`}
 		>
-			<img src={props.avatar} alt='avatar' className={style.avatar} />
+			<img
+				src={`/assets/images/${props.avatar}`}
+				alt='avatar'
+				className={style.avatar}
+			/>
 
 			<h2 className={style.name}>{props.name}</h2>
 

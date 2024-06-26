@@ -55,6 +55,7 @@ const SkillsForm: React.FC = () => {
 							name='skillName'
 							type='text'
 							placeholder='Enter skill name'
+							id='skillName'
 						/>
 
 						<Input
@@ -62,6 +63,7 @@ const SkillsForm: React.FC = () => {
 							name='skillRange'
 							type='text'
 							placeholder='Enter skill range'
+							id='skillRange'
 						/>
 						<Button
 							type='submit'

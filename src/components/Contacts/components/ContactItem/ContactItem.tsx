@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './ContactItem.module.scss';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import icons from '../../../../helpers/faIcons';
 
 export interface ContactItemProps {
 	icon: IconProp;
@@ -13,14 +12,12 @@ export interface ContactItemProps {
 }
 
 const ContactItem: React.FC<ContactItemProps> = (props) => {
-	// const icons = icons
-
 	return (
-		<a href={props.link} className={style.item}>
+		<a href={props.link} className={style.item} data-testid='contact-item'>
 			<FontAwesomeIcon
 				icon={props.icon}
 				className={style.icon}
-				// data-testid={`icon-${icons[props.icon].iconName}`}
+				data-testid={`icon-${props.link}`}
 			/>
 
 			<div className={style.textContainer}>

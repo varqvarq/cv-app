@@ -15,6 +15,7 @@ export const Navigation: React.FC = () => {
 		const callback = (entries: IntersectionObserverEntry[]) => {
 			entries.forEach((entry) => {
 				const entryId = entry.target.id;
+
 				if (entry.isIntersecting) {
 					history.replaceState('', '', `#${entryId}`);
 

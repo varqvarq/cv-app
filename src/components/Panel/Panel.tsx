@@ -24,7 +24,7 @@ export const Panel: React.FC<PanelProps> = ({
 					<div className={style.photoboxContainer}>
 						<PhotoBox
 							name={'Ramil Askarov'}
-							avatar={img}
+							avatar={'avatar.svg'}
 							sidebar
 							className={style.photobox}
 						/>

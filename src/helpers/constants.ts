@@ -134,11 +134,13 @@ export const portfolioData: IPortfolioData[] = [
 export const contactData: IContactsData[] = [
 	{
 		icon: 'faPhone',
+		title: '',
 		text: '500 342 242',
 		link: 'tel:500 342 242',
 	},
 	{
 		icon: 'faEnvelope',
+		title: '',
 		text: 'office@kamsolutions.pl',
 		link: 'mailto:office@kamsolutions.pl',
 	},
@@ -152,6 +154,7 @@ export const contactData: IContactsData[] = [
 		icon: 'faFacebookF',
 		title: 'Facebook',
 		text: 'https://www.facebook.com',
+		link: 'https://www.facebook.com',
 	},
 	{
 		icon: 'faSkype',

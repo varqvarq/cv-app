@@ -4,7 +4,6 @@ import SkillsForm from './components/SkillsForm';
 import { skillsData as data } from '../../helpers/constants';
 import Button from '../common/Button/Button';
 import icons from '../../helpers/faIcons';
-import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
 import {
 	selectSkillsData,
@@ -32,6 +31,7 @@ export const Skills: React.FC = () => {
 						key={skill.name}
 						className={style.skillBar}
 						style={{ width: `${skill.range}%` }}
+						role='progressbar'
 					>
 						{skill.name}
 					</div>
