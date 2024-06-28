@@ -7,11 +7,15 @@ import Input from '../../common/Input/Input';
 import Button from '../../common/Button/Button';
 
 import { ISkillsData } from '../../../helpers/types';
-import { useAppDispatch } from '../../../redux/app/hooks';
-import { addSkill } from '../../../redux/features/skills/skillsSlice';
+import { useAppDispatch, useAppSelector } from '../../../redux/app/hooks';
+import {
+	addSkill,
+	selectSkillsData,
+} from '../../../redux/features/skills/skillsSlice';
 
 const SkillsForm: React.FC = () => {
 	const dispatch = useAppDispatch();
+	const { skills } = useAppSelector(selectSkillsData);
 
 	return (
 		<Formik
@@ -29,14 +33,20 @@ const SkillsForm: React.FC = () => {
 			})}
 			onSubmit={async (values, { setSubmitting, resetForm }) => {
 				try {
-					alert(JSON.stringify(values, null, 2));
-
 					const newSkill: ISkillsData = {
 						name: values.skillName,
 						range: +values.skillRange,
 					};
 
-					dispatch(addSkill(newSkill));
+					if (
+						!skills.some(
+							(skill) => skill.name.toLowerCase() == newSkill.name.toLowerCase()
+						)
+					) {
+						dispatch(addSkill(newSkill));
+					} else {
+						alert('This skill already exist');
+					}
 
 					resetForm();
 				} catch (e) {
@@ -67,7 +77,7 @@ const SkillsForm: React.FC = () => {
 						/>
 						<Button
 							type='submit'
-							buttonText='Add skill'
+							buttonText={`add skill`}
 							className={style.button}
 							disabled={!isValid || !values.skillName || !values.skillRange}
 						/>

@@ -9,10 +9,12 @@ import {
 	selectSkillsData,
 	toggleSkills,
 } from '../../redux/features/skills/skillsSlice';
+import { useState } from 'react';
 
 export const Skills: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const { skills: data, skillFormIsOpen } = useAppSelector(selectSkillsData);
+	const levels = ['Beginner', 'Proficient', 'Expert', 'Master'];
 
 	return (
 		<div className={style.container}>
@@ -33,28 +35,21 @@ export const Skills: React.FC = () => {
 						style={{ width: `${skill.range}%` }}
 						role='progressbar'
 					>
-						{skill.name}
+						<span>{skill.name}</span>
 					</div>
 				);
 			})}
-			<div className={style.line}>
-				<svg
-					width='100%'
-					height='10'
-					viewBox='0 0 964 10'
-					fill='none'
-					preserveAspectRatio='none'
-				>
-					<rect y='9' width='964' height='1' fill='#667081' />
-					<rect width='1' height='10' fill='#667081' />
-					<rect x='201' width='1' height='10' fill='#667081' />
-					<rect x='762' width='1' height='10' fill='#667081' />
-					<rect x='963' width='1' height='10' fill='#667081' />
-				</svg>
-				<span className={style.label}>Beginner</span>
-				<span className={style.label}>Proficient</span>
-				<span className={style.label}>Expert</span>
-				<span className={style.label}>Master</span>
+			<div className={style.scaleLineContainer}>
+				<div className={style.scaleLine}>
+					{levels.map((level) => {
+						return (
+							<div className={style.mark} key={level}>
+								<div className={style.line} />
+								<div className={style.label}>{level}</div>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);
