@@ -12,6 +12,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(fetchEducationData());
+		dispatch(fetchSkillsData());
 	}, [dispatch]);
 
 	return (

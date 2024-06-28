@@ -4,9 +4,7 @@ import { feedbackData as data } from '../../helpers/constants';
 
 import Info from '../common/Info/Info';
 
-interface FeedbackProps {}
-
-export const Feedback: React.FC<FeedbackProps> = () => {
+export const Feedback: React.FC = () => {
 	return (
 		<ul className={style.container}>
 			{data.map((item) => (
@@ -21,7 +19,7 @@ export const Feedback: React.FC<FeedbackProps> = () => {
 						/>
 
 						<p className={style.reporterName}>
-							{`${item.reporter.name}, `}
+							{`${item.reporter.name},`}
 							<a
 								href={`${item.reporter.citeUrl}`}
 								className={style.reporterLink}

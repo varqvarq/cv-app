@@ -13,7 +13,11 @@ export interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = (props) => {
 	return (
-		<a href={props.link} className={style.item} data-testid='contact-item'>
+		<a
+			href={props.link}
+			className={style.itemContainer}
+			data-testid='contact-item'
+		>
 			<FontAwesomeIcon
 				icon={props.icon}
 				className={style.icon}

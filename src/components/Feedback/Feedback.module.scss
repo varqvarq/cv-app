@@ -2,6 +2,8 @@
 
 .container {
   height: 100dvh;
+  margin-bottom: 40px;
+
   .item {
     margin-bottom: 40px;
     list-style: none;
@@ -14,6 +16,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      gap: 5px;
     
       .reporterImg {
         width: 50px;
@@ -26,6 +29,7 @@
         @include small-text($main-dark-blue);
         word-break: break-all;
         flex-wrap: wrap;
+        gap: 5px;
       }
     
       .reporterLink {

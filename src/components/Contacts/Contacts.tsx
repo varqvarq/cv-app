@@ -7,7 +7,7 @@ import ContactItem from './components/ContactItem/ContactItem';
 
 export const Contacts: React.FC = () => {
 	return (
-		<div className={style.container}>
+		<>
 			{contactData.map((contact, index: number) => (
 				<ContactItem
 					key={index}
@@ -17,7 +17,7 @@ export const Contacts: React.FC = () => {
 					link={contact.link}
 				/>
 			))}
-		</div>
+		</>
 	);
 };
 

@@ -5,6 +5,8 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  html { overflow-y:scroll; }
+  height: auto;
 }
 
 *, *::after, *::before {
@@ -18,7 +20,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $main-white
+  color: $main-white;
+  min-height: 100dvh;
+  height: 100%;
 }
 
 code {
