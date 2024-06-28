@@ -45,8 +45,8 @@ export const addSkill = createAsyncThunk<ISkillsData, ISkillsData>(
 					'Something went wrong; please review your server connection!'
 				);
 			}
-			const data = await response.json();
-			thunkApi.dispatch(fetchSkillsData());
+			const data = (await response.json()) as ISkillsData;
+			thunkApi.dispatch(addSkillLocal(data));
 
 			return data;
 		} catch (e) {
@@ -62,6 +62,9 @@ export const skillsSlice = createSlice({
 		toggleSkills: (state, action) => {
 			state.skillFormIsOpen = action.payload;
 		},
+		addSkillLocal: (state, action) => {
+			state.skills.push(action.payload);
+		},
 	},
 
 	extraReducers: (builder) => {
@@ -71,19 +74,16 @@ export const skillsSlice = createSlice({
 			})
 			.addCase(fetchSkillsData.fulfilled, (state, action) => {
 				state.status = 'idle';
-				state.skills = action.payload;
+				state.skills.push(...action.payload);
 			})
 			.addCase(fetchSkillsData.rejected, (state, action) => {
 				state.status = 'failed';
 				state.error = action.payload as string;
-			})
-			.addCase(addSkill.fulfilled, (state, action) => {
-				state.skills.push(action.payload);
 			});
 	},
 });
 
-export const { toggleSkills } = skillsSlice.actions;
+export const { toggleSkills, addSkillLocal } = skillsSlice.actions;
 
 export const selectSkillsData = (state: RootState) => state.skillsSlice;
 
