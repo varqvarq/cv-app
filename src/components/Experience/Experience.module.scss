@@ -1,0 +1,45 @@
+@use '../../assets/styles/styles.scss' as *;
+
+.list {
+
+  .element {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+
+    .companyInfo {
+      max-width: 85px;
+      width: 100%;
+      margin-right: 20px;
+      
+      .company {
+        @include main-bold-text;
+      }
+
+      .date {
+        @include secondary-text;
+      }
+    }
+
+    .jobInfo {
+
+      .job {
+        @include main-bold-text;
+      }
+
+      .description {
+        @include main-text;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    
+    .element {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}

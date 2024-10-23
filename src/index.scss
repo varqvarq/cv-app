@@ -1,0 +1,34 @@
+@use './assets/styles/styles.scss' as *;
+@import-normalize;
+@import './assets/fonts/fonts.scss';
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  html { overflow-y:scroll; }
+  height: auto;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $main-white;
+  min-height: 100dvh;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  text-decoration: none;
+}

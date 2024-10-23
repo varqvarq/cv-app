@@ -1,0 +1,34 @@
+@use '../../../assets/styles/styles.scss' as *;
+
+.button {
+  @include button-text;
+  background-color: $main-dark-blue;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
+  background-color: $main-gray;
+}
+
+.text {
+  text-decoration: none;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+}
+
+.button:hover:enabled {
+  background-color: $main-green;
+}
+
+.text::first-letter {
+  text-transform: uppercase;
+}

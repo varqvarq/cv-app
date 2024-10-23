@@ -1,0 +1,55 @@
+.wrapper {
+    position: relative;
+
+    .fetch   {
+      width: 200px;
+      height: 50px;
+      margin-left: 500px;
+    }
+
+  .container {
+    width: 100%;
+    padding: 40px 20px 10px 35px;
+  }
+  
+  .active { 
+    width: calc(100% - 250px);
+    margin-left: 250px;
+  }
+  .goUp {
+    display: block;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    right: 35px;
+    bottom: -4px;
+    transform: rotate(90deg);
+
+    &:hover, &:active {
+      background-color: none;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .fetch { 
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+
+    .container {
+      padding: 20px 20px 10px 38px;
+    }
+
+      .active {
+        width: calc(100% - 55px);
+        margin-left: 55px;
+      }
+  }
+}

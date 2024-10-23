@@ -1,0 +1,82 @@
+@use '../../assets/styles/styles.scss' as *;
+
+.container {
+  max-height: 50vh;
+  min-height: 30vh;
+  overflow-y: auto;
+  position: relative;
+  
+  
+  .list {
+    position: relative;
+    padding: 15px 0;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      background: #26C17E;
+      top: 0;
+      bottom: 0;
+      margin-left: 18px;
+    }
+      
+    .event {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+
+      .eventContent {
+        position: relative;
+      }
+
+      .eventContent::after {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: -10px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid $main-light-gray; 
+      }
+
+      .year {
+        @include main-bold-text;
+        padding: 15px;
+        background: $main-white;
+        position: relative;
+        left: -15px;
+      }
+    } 
+  }
+
+  .loading {
+    position: absolute;
+    color: $main-green;
+    left: 50%;
+    top: 50%;
+    animation: loading 1.5s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    
+  }
+  
+  .error {
+    position: absolute;
+    text-align: center;
+    width: fit-content;
+    @include main-text(red);
+    left: 35%;
+    top: 50%;
+  }
+
+
+};

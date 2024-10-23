@@ -1,0 +1,62 @@
+@use './variables' as *;
+
+@mixin main-title {
+  width: fit-content;
+  font-weight: $fw-700;
+  font-size: $fs-large-25;
+  line-height: $lh-120;
+  color: $main-green;
+}
+
+@mixin main-text($color: $main-dark-blue, $lh: $lh-150) {
+  font-weight: $fw-400;
+  font-size: $fs-small-14;
+  line-height: $lh;
+  color: $color;
+}
+
+@mixin main-bold-text($color: $main-dark-blue) {
+  width: fit-content;
+  font-weight: $fw-700;
+  font-size: $fs-normal-16;
+  line-height: $lh-120;
+  color: $color;
+}
+
+@mixin normal-light-text($color: $main-gray) {
+  @include main-bold-text($color);
+  font-weight: $fw-400;
+}
+
+@mixin small-text($color: $main-gray){
+  font-weight: $fw-400;
+  font-size: $fs-xsmall-12;
+  line-height: $lh-120;
+  color: $color;
+}
+
+@mixin secondary-text($color: $main-gray) {
+  font-weight: $fw-400;
+  font-size: $fs-normal-16;
+  line-height: $lh-120;
+  color: $color;
+}
+
+@mixin button-text {
+  font-weight: $fw-400;
+  font-size: $fs-normal-16;
+  line-height: $lh-120;
+  text-align: center;
+  color: $main-white;
+}
+
+@mixin labelText {
+
+}
+
+@mixin center-column-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
